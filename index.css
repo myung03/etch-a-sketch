@@ -32,3 +32,14 @@ h1 {
 .clicked {
     background-color: red;
 }
+
+.modes {
+    display: flex;
+    margin-top: 40px;
+    gap: 10px;
+}
+
+.modes-button{
+    width: 100px;
+    height: 30px;
+}

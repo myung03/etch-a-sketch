@@ -6,8 +6,35 @@ const randomcolor = () => {
 }
 
 //TODO -> add a RAINBOW mode + black/white mode
-//TODO -> implement slider 
 let isDragging = false;
+let isBlack = false;
+let isRainbow = false;
+let erase = false;
+
+const blackMode = () => {
+    const black = document.querySelector('#black');
+    black.addEventListener('click', () => {
+        isBlack = true;
+    isRainbow = false;
+    erase = false;});
+}
+
+const rainbowMode = () => {
+    const rainbow = document.querySelector('#rainbow');
+    rainbow.addEventListener('click', () => {isRainbow = true; 
+        isBlack = false;
+        erase = false;});
+}
+
+const eraser = () => {
+    const eraser = document.querySelector('#eraser');
+    eraser.addEventListener('click', () => {erase = true;
+        isBlack = false;
+        isRainbow = false;});
+}
+blackMode();
+rainbowMode();
+eraser();
 
 const drawingFunction = () => {
 
@@ -16,11 +43,17 @@ element.addEventListener('mousedown', () => isDragging = true);
 element.addEventListener('mouseup', () => isDragging = false);
 
 element.addEventListener('mousemove', () => {
-    if (isDragging) {
-    element.style.backgroundColor = `rgba(${randomcolor()},${randomcolor()},${randomcolor()})`
-    //element.style.backgroundColor = 'black';
-}})
-}
+    if (isDragging && isBlack) {
+    element.style.backgroundColor = 'black';
+}       else if (isDragging && isRainbow) {
+              element.style.backgroundColor = `rgba(${randomcolor()},${randomcolor()},${randomcolor()})`;
+                 }
+                 else if (isDragging && erase) {
+                    element.style.backgroundColor = `white`;
+                    }
+             }
+         )       
+     }
 }
 
 setInterval(drawingFunction, 5000);
@@ -53,6 +86,7 @@ document.getElementById("myButton").addEventListener('click', () => {
 
 
 })
+
 
 //const test = document.getElementById('1');
 //test.addEventListener('click', () => test.style.backgroundColor = 'red');
