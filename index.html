@@ -15,9 +15,12 @@
 <section class="main-text"> 
 <label>Create a grid between 16 and 100!</label><br>
 <div id="gridinfo"></div>
-<input type="range" id="gridValue" value = "16" max="100" min="16"><br>
+<input type="range" id="gridValue" value = "16" max="100" min="16" onchange="show_value(this.value);"><br>
 <output id="output"></output>
-<button type="button" id="myButton">Submit</button>
+
+<div id="slider_value"></div>
+
+<button type="button" id="myButton">Create</button>
 <section class="modes">
 <button id="black" class="modes-button">Black mode</button>
 <button id="rainbow" class="modes-button">Rainbow mode</button>

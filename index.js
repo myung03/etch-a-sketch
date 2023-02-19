@@ -87,6 +87,11 @@ document.getElementById("myButton").addEventListener('click', () => {
 
 })
 
+function show_value(x)
+{
+ document.getElementById("slider_value").innerHTML=x;
+}
+
 
 //const test = document.getElementById('1');
 //test.addEventListener('click', () => test.style.backgroundColor = 'red');
